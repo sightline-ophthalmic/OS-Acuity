@@ -1,2 +1,2 @@
 # OS-Acuity
-Open Source Acuity Testing for Optometrists
+Open Source Visual Acuity Testing for Optometrists
