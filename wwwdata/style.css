@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Optician Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Optician Sans'), url('Optiker-K.woff2') format('woff2');
+}
+
+html, body, #displayType {
+   height: 100%;
+}
+
+html, body {
+   border: 0;
+   margin: 0;
+   padding: 0;
+}
+
+body {
+   background-color: #fff;
+   font-family: 'Lato', sans-serif;
+   color: #000;
+}
+
+#goFullScreen {
+   display: flex;
+   float: left;
+   position: absolute;
+   top: 15%;
+   left: 40%;
+   background-color: #5B6C6A;
+   color: #fff;
+   font-size: 20pt;
+   width: 20%;
+   height: 15%;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+
+#calibrate {
+   display: flex;
+   float: left;
+   position: absolute;
+   top: 75px;
+   left: 75px;
+   background-color: #5B6C6A;
+   color: #fff;
+   font-size: 21.84px;
+   width: 546px;
+   height: 546px;
+   align-items: center;
+   text-align: center;
+}
+
+#calibrate .notice  {
+   margin: auto;
+   align-items: center;
+}
+
+#saveCal {
+   display: flex;
+   float: right;
+   position: absolute;
+   top: 90px;
+   left: 90px;
+   font-size: 20px;
+   width: 70px;
+   height: 50px;
+   align-items: center;
+   text-align: center;
+}
+
+#saveButton {
+   background-color: #791E1E;
+   color: #fff;
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   border: 1px solid #fff;
+}
+
+#acuitySize {
+   display: flex;
+   float: right;
+   position: absolute;
+   bottom: 15px;
+   right: 15px;
+   font-size: 50pt;
+}
+
+#displayType {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-family: 'Optician Sans';
+   font-size: 160px;
+}
