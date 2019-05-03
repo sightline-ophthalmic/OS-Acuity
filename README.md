@@ -8,9 +8,11 @@ This project is in open development and is not yet ready for you to use.
 Put the contents of wwwdata into the root directory, subfolder, or subdomain of your website. It is recommended that you clone this repo and then symlink the folder to streamline the update process.
 
 ## Hardware
-Version 1 of OS-Acuity will be designed to run on the following hardware. Future versions of the software may include a calibration tool, allowing you to run OS-Acuity on nearly any hardware.
+Version 1 of OS-Acuity will be designed to run on the following hardware.
 * [ViewSonic VP2458 24" 1080p Display](https://amzn.to/2JeLP8s)
 * [Intel Compute Stick CS125 w/ Win 10](https://amzn.to/2H0kC80)
+
+Future versions of the software may include a calibration tool, allowing you to run OS-Acuity on nearly any hardware.
 
 ## Room size
 Line of sight distance from patient to display must be inside the range 10 ft to 25 ft.
