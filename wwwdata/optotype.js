@@ -1,110 +1,101 @@
 /* jshint undef: true, strict: true, esversion: 6 */
 /* globals $, document, jQuery, alert, console, window, setTimeout */
 
-var calWidth = 1;
-var calRatio = 1;
-var fullScreen = false;
-var calibrateMode = false;
+var fullScreen = false;    // Global variable to track if window is in full screen mode
 
-var optoSize = 4.375;   // Height of 20/10 font in mm
-var pxSize = 0.274;     // Dimensions of a single pixel on the screen in mm
-var optoIndex = 3;      // Start with 20/20
+var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet
+var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
+var optoIndex = 3;         // Used to track current optotype size. Defaults to 20/20. Corresponds with "index" in optoRatios
 
-var optoRatios = [{
+var optoRatios = [{        // List of all available optotype sizes and their corresponding ratio
    index: 1,
-   display: 10,
-   ratio: 1.0,
-   letters: 5
+   display: 10,            // Display: what # to show in the bottom right
+   ratio: 0.5,             // Ratio when compared with 20/20 optotype
+   letters: 5              // How many letters to display at this size
 }, {
    index: 2,
    display: 15,
-   ratio: 1.5,
+   ratio: 0.75,
    letters: 5
 }, {
    index: 3,
    display: 20,
-   ratio: 2.0,
+   ratio: 1.0,
    letters: 5
 }, {
    index: 4,
    display: 25,
-   ratio: 2.5,
+   ratio: 1.25,
    letters: 5
 }, {
    index: 5,
    display: 30,
-   ratio: 3.0,
+   ratio: 1.5,
    letters: 5
 }, {
    index: 6,
    display: 40,
-   ratio: 4.0,
+   ratio: 2.0,
    letters: 5
 }, {
    index: 7,
    display: 50,
-   ratio: 5.0,
+   ratio: 2.5,
    letters: 5
 }, {
    index: 8,
    display: 60,
-   ratio: 6.0,
+   ratio: 3.0,
    letters: 5
 }, {
    index: 9,
    display: 70,
-   ratio: 7.0,
+   ratio: 3.5,
    letters: 5
 }, {
    index: 10,
    display: 80,
-   ratio: 8.0,
+   ratio: 4.0,
    letters: 5
 }, {
    index: 11,
    display: 100,
-   ratio: 10.0,
+   ratio: 5.0,
    letters: 3
 }, {
    index: 12,
    display: 200,
-   ratio: 20.0,
+   ratio: 10.0,
    letters: 2
 }, {
    index: 13,
    display: 400,
-   ratio: 40.0,
+   ratio: 20.0,
    letters: 1
 }];
 
 function optoType() {
    'use strict';
 
-   var optoLength, optoChars, optoString;
-
+   let optoLength, optoChars, optoString = '';
    let resizeObj = optoRatios.find(o => o.index == optoIndex);
    optoLength = resizeObj.letters;
-   optoChars = 'CDEFHKNPRUVZ';
-   optoString = '';
+   optoChars = 'CDEFHKNPRUVZ';   // These are the standard letters used for optotype.
+
 
    // Loops until characters are found
    while (optoString.length < 1) {
-      var optoText, rlast, rnow;
-
-      optoText = '';
-      rlast = '';
-      rnow = '';
+      let optoText = '', rlast = '', rnow = '';
 
       for (var i = 0; i < optoLength; i++) {
-         var rnum;
-         rnum = Math.floor(Math.random() * optoChars.length);
+         let rnum = Math.floor(Math.random() * optoChars.length);
 
          rnow = optoChars.substring(rnum,rnum+1);
 
-         // Prevent duplicates
+         // Prevent two of the same letter appearing side by side
          if (rnow != rlast) {
 
-            // Add space between letters
+            // Add a space between letters
             if (optoText.length > 0) {
                optoText += ' ';
             }
@@ -142,24 +133,6 @@ function f11Toggle() {
    return true;
 }
 
-function calToggle() {
-   'use strict';
-
-   // Depreciated
-   // Display Calibrate Message only for Full Screen. Do not display once calRatio is set.
-   if ((fullScreen == true) && (calWidth == 0)) {
-      $('#calibrate').show();
-      $('#saveCal').show();
-      calibrateMode = true;
-   } else {
-      $('#calibrate').hide();
-      $('#saveCal').hide();
-      calibrateMode = false;
-   }
-
-   return true;
-}
-
 function changeSize(newIndex) {
    'use strict';
 
@@ -177,92 +150,49 @@ $(function () {
 
    // Hide/show certain pop ups
    f11Toggle();
-   calToggle();
 
    // Set initial text and size
    changeSize(optoIndex);
    $('#displayType').text(optoType());
 
-   // Full screen detector
+   // Full screen detection (and reaction)
    $(window).resize(function() {
       setTimeout(() => {
          f11Toggle();
-         calToggle();
+         // Add additional functions here
       }, 100);
    });
 
    // Do things when keys are pressed
    $(document).keydown(function(e) {
-      var boxSize;
 
-      // Randomize optotype when <- or -> keys pressed
+      // Key press: ← or → (left or right)
+      // Randomizes optotype.
       if (e.keyCode == 37 || e.keyCode == 39) {
          $('#displayType').text(optoType());
       }
 
-      // Up key pressed
+      // Key press: ↑ (up)
+      // Increases size
       if (e.keyCode == 38) {
 
-         // Cablibration mode
-         if (calibrateMode == true) {
-            boxSize = $('#calibrate').width();
-            $('#calibrate').width(boxSize + 1);
-            $('#calibrate').height(boxSize + 1);
-            $('#calibrate').css('font-size', boxSize/25);
-
-         } else {
-
-            // Cycle through larger acuity charts
-            if (optoIndex < 13) {
-               optoIndex++;
-               changeSize(optoIndex);
-            }
-
+         if (optoIndex < 13) {
+            optoIndex++;
+            changeSize(optoIndex);
          }
 
       }
 
-      // Down key pressed
+      // Key press: ↓ (down)
+      // Decreases size
       if (e.keyCode == 40) {
 
-         // Cablibration mode
-         if (calibrateMode == true) {
-            boxSize = $('#calibrate').width();
-            if (boxSize > 100) {
-               $('#calibrate').width(boxSize - 1);
-               $('#calibrate').height(boxSize - 1);
-               $('#calibrate').css('font-size', boxSize/25);
-            }
-
-         } else {
-
-            // Cycle through smaller acuity charts
-            if (optoIndex > 1) {
-               optoIndex--;
-               changeSize(optoIndex);
-            }
-
+         if (optoIndex > 1) {
+            optoIndex--;
+            changeSize(optoIndex);
          }
 
       }
-
-   });
-
-   // Save Calibration Data
-   $('#saveButton').click(function() {
-
-      // Store in JS global var
-      calWidth = $('#calibrate').width();
-      calRatio = (calWidth / 546);
-
-      // Store in Session Cookie
-      // (Not yet built)
-
-      // Toggle the Calibration Window
-      calToggle();
-
-      // Temporary Hack: Multiply OptoType by CalRatio
-      $('#displayType').css('font-size', (calRatio * 160));
 
    });
 
