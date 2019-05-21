@@ -77,12 +77,13 @@ var optoRatios = [{
    letters: 1
 }];
 
-function optoType(len) {
+function optoType() {
    'use strict';
 
    var optoLength, optoChars, optoString;
 
-   optoLength = len;
+   let resizeObj = optoRatios.find(o => o.index == optoIndex);
+   optoLength = resizeObj.letters;
    optoChars = 'CDEFHKNPRUVZ';
    optoString = '';
 
@@ -118,7 +119,7 @@ function optoType(len) {
       }
 
       // Blacklist Filter
-      if (optoText.search('F U C') == -1 && optoText.search('F U K') == -1 && optoText.search('N U D E') == -1 && optoText.search('F E C K') == -1 && optoText.search('D R U N K') == -1 && optoText.search('P E C K') == -1 && optoText.search('C U C K')) {
+      if (optoText.search('F U C') == -1 && optoText.search('F U K') == -1 && optoText.search('N U D E') == -1 && optoText.search('F E C K') == -1 && optoText.search('D R U N K') == -1 && optoText.search('P E C K') == -1 && optoText.search('C U C K') && optoText != 'F U') {
          optoString = optoText;
       }
    }
@@ -166,9 +167,7 @@ function changeSize(newIndex) {
       let resizeObj = optoRatios.find(o => o.index == newIndex);
       $('#displayType').css('font-size', (((optoSize * resizeObj.ratio) / pxSize) * 2));
       $('#acuitySize').text(resizeObj.display);
-      if (newIndex == 12) {
-         $('#displayType').text(optoType(2));
-      }
+      $('#displayType').text(optoType());
    }
 }
 
@@ -176,15 +175,13 @@ function changeSize(newIndex) {
 $(function () {
    'use strict';
 
-   var optoLength = 5;
-
    // Hide/show certain pop ups
    f11Toggle();
    calToggle();
 
    // Set initial text and size
    changeSize(optoIndex);
-   $('#displayType').text(optoType(optoLength));
+   $('#displayType').text(optoType());
 
    // Full screen detector
    $(window).resize(function() {
@@ -200,11 +197,7 @@ $(function () {
 
       // Randomize optotype when <- or -> keys pressed
       if (e.keyCode == 37 || e.keyCode == 39) {
-         var newLength = optoLength;
-         if (optoIndex == 13) {
-            let newLength = 2;
-         }
-         $('#displayType').text(optoType(newLength));
+         $('#displayType').text(optoType());
       }
 
       // Up key pressed
