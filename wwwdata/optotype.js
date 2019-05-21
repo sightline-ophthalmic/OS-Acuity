@@ -212,8 +212,13 @@ $(function () {
             qMenu = false;
 
             // Commit changes to memory
-            losD = parseFloat($('#losD').val());
-            console.log(losD);
+            losDft = parseFloat($('#losDft').val());
+            losDin = parseFloat($('#losDin').val());
+            losD = losDft + (losDin / 12);
+            pxSize = parseFloat($('#pxSize').val());
+
+            // Adjust on screen size accordingly
+            changeSize(optoIndex);
 
          }
 
