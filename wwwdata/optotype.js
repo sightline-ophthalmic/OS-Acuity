@@ -142,7 +142,7 @@ function changeSize(newIndex) {
 
    if ((newIndex <= 13) && (newIndex >= 1)) {
       let resizeObj = optoRatios.find(o => o.index == newIndex);
-      $('#displayType').css('font-size', (((optoSize * resizeObj.ratio) / pxSize) * 2));
+      $('#displayType').css('font-size', (((optoSize * resizeObj.ratio) / pxSize) * 2 * (losD / 20)));
       $('#acuitySize').text(resizeObj.display);
       $('#displayType').text(optoType());
    }
@@ -204,8 +204,16 @@ $(function () {
       if (e.keyCode == 81) {
 
          if (qMenu == false) {
+            // Show the menu
             $('#q').show();
             qMenu = true;
+
+            // Get values from memory
+            $('#losDft').val(losDft);
+            $('#losDin').val(losDin);
+            $('#pxSize').val(pxSize);
+            $('#optoMirror').prop('checked', optoMirror);
+
          } else {
             // Hide the menu
             $('#q').hide();
@@ -216,6 +224,16 @@ $(function () {
             losDin = parseFloat($('#losDin').val());
             losD = losDft + (losDin / 12);
             pxSize = parseFloat($('#pxSize').val());
+
+            // Mirror text if checked
+            if ($('#optoMirror').is(':checked')) {
+               optoMirror = true;
+               $('#displayType').addClass('mirror');
+            } else {
+               optoMirror = false;
+               $('#displayType').removeClass('mirror');
+            }
+
 
             // Adjust on screen size accordingly
             changeSize(optoIndex);
