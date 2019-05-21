@@ -6,6 +6,77 @@ var calRatio = 1;
 var fullScreen = false;
 var calibrateMode = false;
 
+var optoSize = 4.375;   // Height of 20/10 font in mm
+var pxSize = 0.274;     // Dimensions of a single pixel on the screen in mm
+var optoIndex = 3;      // Start with 20/20
+
+var optoRatios = [{
+   index: 1,
+   display: 10,
+   ratio: 1.0,
+   letters: 5
+}, {
+   index: 2,
+   display: 15,
+   ratio: 1.5,
+   letters: 5
+}, {
+   index: 3,
+   display: 20,
+   ratio: 2.0,
+   letters: 5
+}, {
+   index: 4,
+   display: 25,
+   ratio: 2.5,
+   letters: 5
+}, {
+   index: 5,
+   display: 30,
+   ratio: 3.0,
+   letters: 5
+}, {
+   index: 6,
+   display: 40,
+   ratio: 4.0,
+   letters: 5
+}, {
+   index: 7,
+   display: 50,
+   ratio: 5.0,
+   letters: 5
+}, {
+   index: 8,
+   display: 60,
+   ratio: 6.0,
+   letters: 5
+}, {
+   index: 9,
+   display: 70,
+   ratio: 7.0,
+   letters: 5
+}, {
+   index: 10,
+   display: 80,
+   ratio: 8.0,
+   letters: 5
+}, {
+   index: 11,
+   display: 100,
+   ratio: 10.0,
+   letters: 3
+}, {
+   index: 12,
+   display: 200,
+   ratio: 20.0,
+   letters: 2
+}, {
+   index: 13,
+   display: 400,
+   ratio: 40.0,
+   letters: 1
+}];
+
 function optoType(len) {
    'use strict';
 
@@ -73,6 +144,7 @@ function f11Toggle() {
 function calToggle() {
    'use strict';
 
+   // Depreciated
    // Display Calibrate Message only for Full Screen. Do not display once calRatio is set.
    if ((fullScreen == true) && (calWidth == 0)) {
       $('#calibrate').show();
@@ -87,6 +159,19 @@ function calToggle() {
    return true;
 }
 
+function changeSize(newIndex) {
+   'use strict';
+
+   if ((newIndex <= 12) && (newIndex >= 1)) {
+      let resizeObj = optoRatios.find(o => o.index == newIndex);
+      $('#displayType').css('font-size', (((optoSize * resizeObj.ratio) / pxSize) * 2));
+      $('#acuitySize').text(resizeObj.display);
+      if (newIndex == 12) {
+         $('#displayType').text(optoType(2));
+      }
+   }
+}
+
 
 $(function () {
    'use strict';
@@ -97,7 +182,8 @@ $(function () {
    f11Toggle();
    calToggle();
 
-   // Set initial text
+   // Set initial text and size
+   changeSize(optoIndex);
    $('#displayType').text(optoType(optoLength));
 
    // Full screen detector
@@ -114,7 +200,11 @@ $(function () {
 
       // Randomize optotype when <- or -> keys pressed
       if (e.keyCode == 37 || e.keyCode == 39) {
-         $('#displayType').text(optoType(optoLength));
+         var newLength = optoLength;
+         if (optoIndex == 13) {
+            let newLength = 2;
+         }
+         $('#displayType').text(optoType(newLength));
       }
 
       // Up key pressed
@@ -130,7 +220,10 @@ $(function () {
          } else {
 
             // Cycle through larger acuity charts
-            console.log('Not yet implemented.');
+            if (optoIndex < 12) {
+               optoIndex++;
+               changeSize(optoIndex);
+            }
 
          }
 
@@ -151,7 +244,10 @@ $(function () {
          } else {
 
             // Cycle through smaller acuity charts
-            console.log('Not yet implemented.');
+            if (optoIndex > 1) {
+               optoIndex--;
+               changeSize(optoIndex);
+            }
 
          }
 
