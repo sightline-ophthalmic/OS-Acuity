@@ -1,7 +1,7 @@
 /* jshint undef: true, strict: true, esversion: 6 */
 /* globals $, document, jQuery, alert, console, window, setTimeout */
 
-var calWidth = 0;
+var calWidth = 1;
 var calRatio = 1;
 var fullScreen = false;
 var calibrateMode = false;
