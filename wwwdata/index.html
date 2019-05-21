@@ -10,13 +10,17 @@
         <script src="optotype.js"></script>
     </head>
     <body>
-        <div id="goFullScreen">Press F11 for Full Screen</div>
+        <div id="goFullScreen">Press F11 for Full Screen<br><br>Q for Configuration</div>
         <div id="q">
-            <p>Line of sight distance (feet):</p> <input type="text" name="distance">
-            <p>Reverse optotype for mirror:</p> <input type="checkbox" name="mirror">
-            <br><br><p class="warning">WARNING: Changing the pixel measurement is unsupported. Change at your own risk.</p>
-            <p>Width per pixel (mm):</p> <input type="text" name="pixelmm">
-            <br><br><p>Press Q to save changes and close.</p>
+            <div id="menu1">
+                <p class="title">Configuration Menu</p>
+                <br><br>
+                <p>Line of sight distance (feet): <input type="text" name="distance" value="20"></p>
+                <p>Reverse optotype for mirror: <input type="checkbox" name="mirror"></p>
+                <br><br><p class="warning">WARNING: Changing pixel dimensions is not recommended. Modify at your own risk.</p>
+                <p>Width per pixel (mm): <input type="text" name="pixelmm" value="0.2740"></p>
+                <br><br><p class="tip">Press Q to save changes.</p>
+            </div>
         </div>
         <div id="acuitySize">40</div>
         <div id="displayType">L O A D N G</div>

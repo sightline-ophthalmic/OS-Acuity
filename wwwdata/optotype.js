@@ -2,6 +2,7 @@
 /* globals $, document, jQuery, alert, console, window, setTimeout */
 
 var fullScreen = false;    // Global variable to track if window is in full screen mode
+var qMenu = false;         // Global variable to track if the menu is open
 
 var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet
 var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
@@ -150,6 +151,7 @@ $(function () {
 
    // Hide/show certain pop ups
    f11Toggle();
+   $('#q').hide();
 
    // Set initial text and size
    changeSize(optoIndex);
@@ -190,6 +192,20 @@ $(function () {
          if (optoIndex > 1) {
             optoIndex--;
             changeSize(optoIndex);
+         }
+
+      }
+
+      // Key press: q
+      // Opens menu
+      if (e.keyCode == 81) {
+
+         if (qMenu == false) {
+            $('#q').show();
+            qMenu = true;
+         } else {
+            $('#q').hide();
+            qMenu = false;
          }
 
       }

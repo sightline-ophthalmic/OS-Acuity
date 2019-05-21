@@ -41,13 +41,20 @@ body {
    display: flex;
    float: left;
    position: absolute;
-   top: 33.3%;
-   left: 33.3%;
-   height: 33.3%;
-   width: 33.3%;
+   bottom: 15%;
+   left: 25%;
+   height: 40%;
+   width: 35%;
    align-items: center;
    justify-content: center;
    text-align: center;
+   background-color: #5B6C6A;
+   color: #fff;
+}
+
+#menu1 {
+   width:80%;
+   text-align:left;
 }
 
 #saveButton {
