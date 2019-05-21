@@ -163,7 +163,7 @@ function calToggle() {
 function changeSize(newIndex) {
    'use strict';
 
-   if ((newIndex <= 12) && (newIndex >= 1)) {
+   if ((newIndex <= 13) && (newIndex >= 1)) {
       let resizeObj = optoRatios.find(o => o.index == newIndex);
       $('#displayType').css('font-size', (((optoSize * resizeObj.ratio) / pxSize) * 2));
       $('#acuitySize').text(resizeObj.display);
@@ -213,7 +213,7 @@ $(function () {
          } else {
 
             // Cycle through larger acuity charts
-            if (optoIndex < 12) {
+            if (optoIndex < 13) {
                optoIndex++;
                changeSize(optoIndex);
             }
