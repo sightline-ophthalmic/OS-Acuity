@@ -7,6 +7,7 @@
 
 html, body, #displayType {
    height: 100%;
+   overflow: hidden;
 }
 
 html, body {
@@ -29,7 +30,7 @@ body {
    left: 40%;
    background-color: #5B6C6A;
    color: #fff;
-   font-size: 20pt;
+   font-size: 32px;
    width: 20%;
    height: 15%;
    align-items: center;
@@ -38,13 +39,14 @@ body {
 }
 
 #q {
+   font-size: 14px;
    display: flex;
    float: left;
    position: absolute;
    bottom: 15%;
    left: 25%;
-   height: 40%;
-   width: 35%;
+   height: 350px;
+   width: 475px;
    align-items: center;
    justify-content: center;
    text-align: center;
@@ -53,8 +55,23 @@ body {
 }
 
 #menu1 {
-   width:80%;
+   width: 80%;
    text-align:left;
+}
+
+#menu1 .title {
+   font-size: 24px;
+}
+
+#menu1 .warning {
+   color: #ED2A2A;
+}
+
+#menu1 hr {
+   border: 0;
+   padding: 0;
+   height: 1px;
+   background-image: linear-gradient(to right, rgba(91, 108, 106, 0), rgba(255, 255, 255, 1), rgba(91, 108, 106, 0));
 }
 
 #saveButton {

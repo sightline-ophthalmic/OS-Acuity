@@ -3,7 +3,8 @@
 
 var fullScreen = false;    // Global variable to track if window is in full screen mode
 var qMenu = false;         // Global variable to track if the menu is open
-
+var optoMirror = false;    // Mirror text
+var losD = 20.0;           // Line of sight distance
 var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet
 var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
 var optoIndex = 3;         // Used to track current optotype size. Defaults to 20/20. Corresponds with "index" in optoRatios
@@ -204,8 +205,13 @@ $(function () {
             $('#q').show();
             qMenu = true;
          } else {
+            // Hide the menu
             $('#q').hide();
             qMenu = false;
+
+            // Commit changes to memory
+            losD = $('#losD').val();
+
          }
 
       }
