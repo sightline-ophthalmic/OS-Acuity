@@ -37,36 +37,16 @@ body {
    text-align: center;
 }
 
-#calibrate {
+#q {
    display: flex;
    float: left;
    position: absolute;
-   top: 75px;
-   left: 75px;
-   background-color: #5B6C6A;
-   color: #fff;
-   font-size: 21.84px;
-   width: 546px;
-   height: 546px;
+   top: 33.3%;
+   left: 33.3%;
+   height: 33.3%;
+   width: 33.3%;
    align-items: center;
-   text-align: center;
-}
-
-#calibrate .notice  {
-   margin: auto;
-   align-items: center;
-}
-
-#saveCal {
-   display: flex;
-   float: right;
-   position: absolute;
-   top: 90px;
-   left: 90px;
-   font-size: 20px;
-   width: 70px;
-   height: 50px;
-   align-items: center;
+   justify-content: center;
    text-align: center;
 }
 
