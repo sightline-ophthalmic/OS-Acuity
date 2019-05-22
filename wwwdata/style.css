@@ -65,7 +65,7 @@ body {
 }
 
 #menu1 .warning {
-   color: #ED2A2A;
+   color: #ff5f5f;
 }
 
 #menu1 hr {
@@ -87,6 +87,14 @@ body {
    width: 50px;
 }
 
+#qReset{
+   color: #71a6f0;
+   text-decoration: none;
+}
+
+#qReset:hover {
+   color: #003e95;
+}
 #acuitySize {
    display: flex;
    float: right;

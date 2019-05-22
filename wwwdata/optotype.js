@@ -313,4 +313,23 @@ $(function () {
 
    });
 
+   // Reset cookies and configuration values to default
+   $('#qReset').click(function() {
+      // Reset values
+      optoMirror = false;
+      pxSize = 0.2740;
+      losDft = 20.0;
+      losDin = 0.0;
+
+      // Re-calculate distance
+      losD = losDft + (losDin / 12);
+
+      // Fix values displayed on screen
+      $('#losDft').val(losDft);
+      $('#losDin').val(losDin);
+      $('#pxSize').val(pxSize);
+      $('#optoMirror').prop('checked', optoMirror);
+
+   });
+
 });
