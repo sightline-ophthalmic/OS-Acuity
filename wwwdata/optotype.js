@@ -46,15 +46,15 @@ var losDin = 0.0;          // Line-of-sight inches that extend beyond last whole
 
 // Check cookies. Replace default values if cookies exist.
 if (getCookie('losDft')) {
-   losDft = getCookie('losDft');
+   losDft = parseFloat(getCookie('losDft'));
 }
 
 if (getCookie('losDin')) {
-   losDin = getCookie('losDin');
+   losDin = parseFloat(getCookie('losDin'));
 }
 
 if (getCookie('pxSize')) {
-   pxSize = getCookie('pxSize');
+   pxSize = parseFloat(getCookie('pxSize'));
 }
 
 // Calculate line of sight distance by adding losDft + losDin
