@@ -11,10 +11,9 @@ OS-Acuity was written for the Google Chrome web browser on the following hardwar
 * [1.75" Wall Mount](https://amzn.to/2W1tTpL)
 * [Bluetooth Remote](https://amzn.to/2wfzRny) (Optional)
 * [USB Charging Port for Remote](https://amzn.to/2waxYIK) (Optional)
-* [Bosch Blaze Pro Laser Distance Measure](https://amzn.to/2YIXEZe) (Optional Tool)
 
 ### Exam room
-Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. Use something like a Bosch laser tool to measure the exact distance. OS-Acuity supports reversed optotype for rooms with mirrors.
+Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. Use something like a [Bosch laser tool](https://amzn.to/2YIXEZe) to measure the exact distance. OS-Acuity supports reversed optotype for rooms with mirrors.
 
 ### Understanding sizing
 The most complicated part of this project is displaying and resizing optotype accurately. The ViewSonic is a professional grade display, making it a perfect candidate for this task.
