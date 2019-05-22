@@ -15,19 +15,21 @@ Line-of-sight distance from patient to display should be inside the range 10 ft 
 ### Understanding sizing
 The most complicated part of this project is displaying and resizing optotype accurately. The ViewSonic is a professional grade display, making it a perfect candidate for this task.
 
-Each pixel on this display measures exactly 0.274mm in the real world. This was calculated by four separate formulas and then verified through rigorous testing. Because of the work involved, this will be only display officially supported by the software. Keep in mind, all of the existing visual acuity equipment at offices around the world are loaded with perpetual software licenses. Those systems will never need to display OS-Acuity on their monitors. Our solution is for offices that want to roll their own hardware.
+Each pixel on this display measures exactly 0.274mm in the real world. This was calculated by four separate formulas and then verified through rigorous testing. Because of the work involved, this will be the only display officially supported.
+
+Keep in mind, all existing visual acuity equipment at offices around the world are already loaded with proprietary optotype software. Those systems will never need to display OS-Acuity on their monitors. Our solution is intended for those looking to roll their own hardware.
 
 ### Using another display
 If you still must use another display, please consider:
 * 1920x1080 is recommended.
 * The correct aspect ratio should be used for your display.
-* DPI scaling is always 100%.
+* DPI scaling should be set to 100%.
 * Open a picture of a perfect square. Vertical pixel height must equal horizontal pixel height. If one side of the square is longer than the other, do not use this display.
 
 You can use this [calculator tool](http://lcdtech.info/en/data/pixel.size.htm) to estimate the size of each pixel. This tool provides a rough estimate only; it should not be trusted until you verify the dimensions. Once you know the size of each pixel on your display, enter the value in the configuration menu.
 
 ## Installation and usage
-Put the contents of wwwdata into the root directory, subfolder, or subdomain of your website. It is recommended that you clone this repo and then symlink the folder to streamline the update process.
+Put the contents of wwwdata into the root directory, subfolder, or subdomain of your website. It is recommended that you clone this repo and then symlink the folder to streamline future updates.
 
 ### Configuration
 Press Q to open the configuration menu. Your session's settings are saved as a cookie.
