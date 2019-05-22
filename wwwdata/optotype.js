@@ -1,7 +1,19 @@
 /* jshint undef: true, strict: true, esversion: 6 */
 /* globals $, document, jQuery, alert, console, window, setTimeout */
 
-// Cookie functions. Taken from https://www.quirksmode.org/js/cookies.html
+
+// Global Variables with default values
+var fullScreen = false;    // Track if window is in full screen mode
+var qMenu = false;         // Track if the menu is open
+var optoMirror = false;    // Track if optotype is mirrored
+var optoIndex = 3;         // Track currently displayed optotype size. Defaults to 20/20. Corresponds with "index" in optoRatios
+var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet. Calculation by Dr. Christopher Carver, O.D.
+var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
+var losDft = 20.0;         // Line-of-sight in whole feet.
+var losDin = 0.0;          // Line-of-sight inches that extend beyond last whole foot.
+
+
+// Functions to simplify cookies. (Source: https://www.quirksmode.org/js/cookies.html)
 function setCookie(name,value,days) {
    'use strict';
 
@@ -34,17 +46,7 @@ function eraseCookie(name) {
 }
 
 
-// Global Variables with default values
-var fullScreen = false;    // Track if window is in full screen mode
-var qMenu = false;         // Track if the menu is open
-var optoMirror = false;    // Track if optotype is mirrored
-var optoIndex = 3;         // Track currently displayed optotype size. Defaults to 20/20. Corresponds with "index" in optoRatios
-var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet. Calculation by Dr. Christopher Carver, O.D.
-var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
-var losDft = 20.0;         // Line-of-sight in whole feet.
-var losDin = 0.0;          // Line-of-sight inches that extend beyond last whole foot.
-
-// Check cookies. Replace default values if cookies exist.
+// Checks for existing cookies. Replace default values if cookies exist.
 if (getCookie('losDft')) {
    losDft = parseFloat(getCookie('losDft'));
 }
@@ -64,6 +66,7 @@ if (getCookie('optoMirror') === 'true') {
 
 // Calculate line of sight distance by adding losDft + losDin
 var losD = losDft + (losDin / 12);
+
 
 // List of all available optotype sizes and their corresponding ratio
 var optoRatios = [{
