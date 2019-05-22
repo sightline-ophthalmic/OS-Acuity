@@ -8,6 +8,9 @@ A development demo of this code is available on [gtwy.net](https://gtwy.net/eyes
 OS-Acuity was written for the Google Chrome web browser on the following hardware.
 * [ViewSonic VP2458 24" 1080p Display](https://amzn.to/2JeLP8s)
 * [Intel Compute Stick CS125 w/ Win 10](https://amzn.to/2H0kC80)
+* [1.75" Wall Mount](https://amzn.to/2W1tTpL)
+* [Bluetooth Remote](https://amzn.to/2wfzRny) (Optional)
+* [Charging Ports for Remote](https://amzn.to/2WiZhzc) (Optional)
 
 ### Exam room
 Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. OS-Acuity supports reversed optotype for rooms with mirrors.
