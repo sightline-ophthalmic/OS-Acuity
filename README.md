@@ -5,6 +5,7 @@ Open Source Visual Acuity Testing for Optometrists. This open source project (an
 A development demo of this code is available on [gtwy.net](https://gtwy.net/eyes/).
 
 ## Hardware
+<<<<<<< HEAD
 Version 1 of OS-Acuity has been designed to run inside the Chrome browser on the following hardware.
 * [ViewSonic VP2458 24" 1080p Display](https://amzn.to/2JeLP8s)
 * [Intel Compute Stick CS125 w/ Win 10](https://amzn.to/2H0kC80)
@@ -16,6 +17,13 @@ Put the contents of wwwdata into the root directory, subfolder, or subdomain of 
 
 ## Configuration
 Press Q to open the configuration menu. At a minimum, please set the correct line of sight distance.
+=======
+Version 1 of OS-Acuity will be designed to run on the following hardware.
+* [ViewSonic VP2458 24" 1080p Display](https://amzn.to/2JeLP8s)
+* [Intel Compute Stick CS125 w/ Win 10](https://amzn.to/2H0kC80)
+
+Future versions of the software may include a calibration tool, allowing you to run OS-Acuity on nearly any hardware.
+>>>>>>> 82dc54ad3c8bb41280f7ddf8c930ce1e605f50d8
 
 ## Room size
 Line of sight distance from patient to display should be inside the range 10 ft to 30 ft. OS-Acuity supports mirrored text.
