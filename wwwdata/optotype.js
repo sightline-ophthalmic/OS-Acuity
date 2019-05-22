@@ -57,6 +57,11 @@ if (getCookie('pxSize')) {
    pxSize = parseFloat(getCookie('pxSize'));
 }
 
+if (getCookie('optoMirror') === 'true') {
+   optoMirror = true;
+}
+
+
 // Calculate line of sight distance by adding losDft + losDin
 var losD = losDft + (losDin / 12);
 
@@ -214,6 +219,11 @@ $(function () {
    changeSize(optoIndex);
    $('#displayType').text(optoType());
 
+   // Mirror text
+   if (optoMirror == true) {
+      $('#displayType').addClass('mirror');
+   }
+
    // Full screen detection (and reaction)
    $(window).resize(function() {
       setTimeout(() => {
@@ -279,11 +289,6 @@ $(function () {
             losD = losDft + (losDin / 12);
             pxSize = parseFloat($('#pxSize').val());
 
-            // Commit changes to cookies
-            setCookie('losDft', losDft, 3650);
-            setCookie('losDin', losDin, 3650);
-            setCookie('pxSize', pxSize, 3650);
-
             // Mirror text if checked
             if ($('#optoMirror').is(':checked')) {
                optoMirror = true;
@@ -292,6 +297,12 @@ $(function () {
                optoMirror = false;
                $('#displayType').removeClass('mirror');
             }
+
+            // Commit changes to cookies
+            setCookie('losDft', losDft, 3650);
+            setCookie('losDin', losDin, 3650);
+            setCookie('pxSize', pxSize, 3650);
+            setCookie('optoMirror', optoMirror, 3650);
 
             // Adjust on screen size accordingly
             changeSize(optoIndex);
