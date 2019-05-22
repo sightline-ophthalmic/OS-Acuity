@@ -1,19 +1,69 @@
 /* jshint undef: true, strict: true, esversion: 6 */
 /* globals $, document, jQuery, alert, console, window, setTimeout */
 
-var fullScreen = false;    // Global variable to track if window is in full screen mode
-var qMenu = false;         // Global variable to track if the menu is open
-var optoMirror = false;    // Mirror text
-var losDft = 20.0;         // Line of sight feet. Remembered for the menu.
-var losDin = 0.0;          // Line of sight inches. Remembered for the menu.
-var losD = 20;             // Line of sight distance. Calculated when changed.
-var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet
-var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
-var optoIndex = 3;         // Used to track current optotype size. Defaults to 20/20. Corresponds with "index" in optoRatios
+// Cookie functions. Taken from https://www.quirksmode.org/js/cookies.html
+function setCookie(name,value,days) {
+   'use strict';
 
-var optoRatios = [{        // List of all available optotype sizes and their corresponding ratio
+   var expires = "";
+   if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+   document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+   'use strict';
+
+   var nameEQ = name + "=";
+   var ca = document.cookie.split(';');
+   for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+   }
+   return null;
+}
+
+function eraseCookie(name) {
+   'use strict';
+
+   document.cookie = name+'=; Max-Age=-99999999;';
+}
+
+
+// Global Variables with default values
+var fullScreen = false;    // Track if window is in full screen mode
+var qMenu = false;         // Track if the menu is open
+var optoMirror = false;    // Track if optotype is mirrored
+var optoIndex = 3;         // Track currently displayed optotype size. Defaults to 20/20. Corresponds with "index" in optoRatios
+var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet. Calculation by Dr. Christopher Carver, O.D.
+var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
+var losDft = 20.0;         // Line-of-sight in whole feet.
+var losDin = 0.0;          // Line-of-sight inches that extend beyond last whole foot.
+
+// Check cookies. Replace default values if cookies exist.
+if (getCookie('losDft')) {
+   losDft = getCookie('losDft');
+}
+
+if (getCookie('losDin')) {
+   losDin = getCookie('losDin');
+}
+
+if (getCookie('pxSize')) {
+   pxSize = getCookie('pxSize');
+}
+
+// Calculate line of sight distance by adding losDft + losDin
+var losD = losDft + (losDin / 12);
+
+// List of all available optotype sizes and their corresponding ratio
+var optoRatios = [{
    index: 1,
-   display: 10,            // Display: what # to show in the bottom right
+   display: 10,            // E.g. 20/10 vision
    ratio: 0.5,             // Ratio when compared with 20/20 optotype
    letters: 5              // How many letters to display at this size
 }, {
@@ -78,6 +128,8 @@ var optoRatios = [{        // List of all available optotype sizes and their cor
    letters: 1
 }];
 
+
+// Generate random letters
 function optoType() {
    'use strict';
 
@@ -122,10 +174,10 @@ function optoType() {
    return optoString;
 }
 
+// Toggles a notice that the window is not in full screen mode
 function f11Toggle() {
    'use strict';
 
-   // Display F11 notice when window is NOT full screen
    if (((window.innerWidth/window.screen.width) >= 0.95) && ((window.innerHeight/window.screen.height) >= 0.95)) {
       $('#goFullScreen').hide();
       fullScreen = true;
@@ -137,6 +189,7 @@ function f11Toggle() {
    return true;
 }
 
+// Changes the size of the optotype on arrow key presses and also on configuration changes
 function changeSize(newIndex) {
    'use strict';
 
@@ -149,6 +202,7 @@ function changeSize(newIndex) {
 }
 
 
+// These functions run automatically when the page loads
 $(function () {
    'use strict';
 
@@ -225,6 +279,11 @@ $(function () {
             losD = losDft + (losDin / 12);
             pxSize = parseFloat($('#pxSize').val());
 
+            // Commit changes to cookies
+            setCookie('losDft', losDft, 3650);
+            setCookie('losDin', losDin, 3650);
+            setCookie('pxSize', pxSize, 3650);
+
             // Mirror text if checked
             if ($('#optoMirror').is(':checked')) {
                optoMirror = true;
@@ -233,7 +292,6 @@ $(function () {
                optoMirror = false;
                $('#displayType').removeClass('mirror');
             }
-
 
             // Adjust on screen size accordingly
             changeSize(optoIndex);
