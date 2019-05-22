@@ -9,11 +9,12 @@ OS-Acuity was written for the Google Chrome web browser on the following hardwar
 * [ViewSonic VP2458 24" 1080p Display](https://amzn.to/2JeLP8s)
 * [Intel Compute Stick CS125 w/ Win 10](https://amzn.to/2H0kC80)
 * [1.75" Wall Mount](https://amzn.to/2W1tTpL)
+* [Bosch Blaze Pro Laser Distance Measure](https://amzn.to/2YIXEZe) (Optional Tool)
 * [Bluetooth Remote](https://amzn.to/2wfzRny) (Optional)
 * [USB Charging Port for Remote](https://amzn.to/2waxYIK) (Optional)
 
 ### Exam room
-Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. OS-Acuity supports reversed optotype for rooms with mirrors.
+Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. Use something like a Bosch laser tool to measure the exact distance. OS-Acuity supports reversed optotype for rooms with mirrors.
 
 ### Understanding sizing
 The most complicated part of this project is displaying and resizing optotype accurately. The ViewSonic is a professional grade display, making it a perfect candidate for this task.
@@ -36,6 +37,8 @@ Put the contents of wwwdata into the root directory, subfolder, or subdomain of 
 
 ### Configuration
 Press Q to open the configuration menu. Your settings are saved as a cookie.
+
+Enter only whole numbers for feet (e.g. 5, 10, 20) and decimal numbers for inches (e.g. 1.0625, 2, 3.5.) Please do not enter fractions (e.g. 3/4".)
 
 ### Usage
 Press ↑ or ↓ (up or down) to increase or decrease the size of the optotype. Press ← or → (left or right) to randomize the letters.
