@@ -1,8 +1,7 @@
 # OS-Acuity
 Open Source Visual Acuity Testing for Optometrists. This open source project (and it's continued support) is funded by Sightline Ophthalmic Associates. Original code by James Watt. This repo contains a copy of [Optician-Sans](https://github.com/anewtypeofinterference/Optician-Sans).
 
-### Demo
-A development demo of this code is available on [gtwy.net](https://gtwy.net/eyes/).
+A live version of this site is available for use at [acuity.sightlinelaser.com](https://acuity.sightlinelaser.com).
 
 ## Requirements
 OS-Acuity was written for the Google Chrome web browser on the following hardware.
