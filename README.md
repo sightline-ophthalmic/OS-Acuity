@@ -3,13 +3,24 @@ Open Source Visual Acuity Testing for Optometrists. This open source project (an
 
 A live version of this site is available for use at [acuity.sightlinelaser.com](https://acuity.sightlinelaser.com).
 
-## Requirements
+
+## Update (2025-03-22)
+A number of items from the hardware suggestions below were no longer available for purchase.
+* ViewSonic VP2458 has been replaced with the VP2456.
+* Intel Compute Stick CS125 is discontinued by Intel.
+* The old Bluetooth remote was no longer availble for purchase.
+
+The display below has been verified for accuracy. As for the other parts, nearly any option will do; suggestions below are just for your convenience.
+
+## Suggested Hardware
 OS-Acuity was written for the Google Chrome web browser on the following hardware.
-* [ViewSonic VP2458 24" 1080p Display](https://amzn.to/2JeLP8s)
-* [Intel Compute Stick CS125 w/ Win 10](https://amzn.to/2H0kC80)
+* [ViewSonic VP2456 24" 1080p Display](https://amzn.to/4jeJpoO)
+* [MeLE PCG02 Mini PC Stick w/ Windows 11](https://amzn.to/4iTG7Xn)
 * [1.75" Wall Mount](https://amzn.to/2W1tTpL)
-* [Bluetooth Remote](https://amzn.to/2wfzRny) (Optional)
+* [Bluetooth Remote](https://amzn.to/4bOxUkZ) (Optional)
 * [USB Charging Port for Remote](https://amzn.to/2waxYIK) (Optional)
+
+_Amazon links accessed through this page will generate a very small amount of referral credit for the technical maintainer of this project._
 
 ### Exam room
 Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. Use something like a [Bosch laser tool](https://amzn.to/2YIXEZe) to measure the exact distance. OS-Acuity supports reversed optotype for rooms with mirrors.
