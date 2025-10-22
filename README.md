@@ -3,6 +3,9 @@ Open Source Visual Acuity Testing for Optometrists. This open source project (an
 
 A live version of this site is available for use at [acuity.sightlinelaser.com](https://acuity.sightlinelaser.com).
 
+## Update (2025-10-22)
+* ViewSonic VP2456 has been replaced with the VP2456A.
+* The old Bluetooth remote and USB charger were no longer available for purchase.
 
 ## Update (2025-03-22)
 A number of items from the hardware suggestions below were no longer available for purchase.
@@ -14,11 +17,11 @@ The display below has been verified for accuracy. As for the other parts, nearly
 
 ## Suggested Hardware
 OS-Acuity was written for the Google Chrome web browser on the following hardware.
-* [ViewSonic VP2456 24" 1080p Display](https://amzn.to/4jeJpoO)
+* [ViewSonic VP2456A 24" 1080p Display](https://amzn.to/4hwRGEs)
 * [MeLE PCG02 Mini PC Stick w/ Windows 11](https://amzn.to/4iTG7Xn)
 * [1.75" Wall Mount](https://amzn.to/2W1tTpL)
-* [Bluetooth Remote](https://amzn.to/4bOxUkZ) (Optional)
-* [USB Charging Port for Remote](https://amzn.to/2waxYIK) (Optional)
+* [Bluetooth Remote](https://amzn.to/3WSwkHS) (Optional)
+* [USB Charging Port for Remote](https://amzn.to/49mVQfM) (Optional)
 
 _Amazon links accessed through this page will generate a very small amount of referral credit for the technical maintainer of this project._
 
