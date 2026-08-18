@@ -156,8 +156,8 @@ function optoType() {
 
          rnow = optoChars.substring(rnum,rnum+1);
 
-         // Prevent two of the same letter appearing side by side
-         if (rnow != rlast) {
+         // Prevent the same letter appearing more than once
+         if (optoText.indexOf(rnow) == -1) {
 
             // Add a space between letters
             if (optoText.length > 0) {
