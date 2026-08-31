@@ -17,16 +17,14 @@ The display below has been verified for accuracy. As for the other parts, nearly
 
 ## Suggested Hardware
 OS-Acuity was written for the Google Chrome web browser on the following hardware.
-* [ViewSonic VP2456A 24" 1080p Display](https://amzn.to/4hwRGEs)
-* [MeLE PCG02 Mini PC Stick w/ Windows 11](https://amzn.to/4iTG7Xn)
-* [1.75" Wall Mount](https://amzn.to/2W1tTpL)
-* [Bluetooth Remote](https://amzn.to/3WSwkHS) (Optional)
-* [USB Charging Port for Remote](https://amzn.to/49mVQfM) (Optional)
-
-_Amazon links accessed through this page will generate a very small amount of referral credit for the technical maintainer of this project._
+* [ViewSonic VP2456A 24" 1080p Display](https://www.amazon.com/ViewSonic-VP2456A-Ergonomics-Validated-DisplayPort/dp/B0F16TCSVC)
+* [MeLE PCG02 Mini PC Stick w/ Windows 11](https://www.amazon.com/MeLE-PCG02-Computer-Functional-Industrial/dp/B0DK4XX23P)
+* [1.75" Wall Mount](https://www.amazon.com/Mount-Universal-Computer-Extension-Compatible/dp/B073DDNHQQ)
+* [Bluetooth Remote](https://www.amazon.com/Fosmon-Portable-Lightweight-Bluetooth-Controller/dp/B00BX0YKX4) (Optional)
+* [USB Charging Port for Remote](https://www.amazon.com/iPhone-Charger-Anker-AirPods-Included/dp/B0C8HHV9DK) (Optional)
 
 ### Exam room
-Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. Use something like a [Bosch laser tool](https://amzn.to/2YIXEZe) to measure the exact distance. OS-Acuity supports reversed optotype for rooms with mirrors.
+Line-of-sight distance from patient to display should be inside the range 10 ft to 30 ft. Distances outside that range may be inaccurate. Use something like a [Bosch laser tool](https://www.amazon.com/Bosch-Distance-Measure-165-Feet-GLM165-40/dp/B076C3TB8P) to measure the exact distance. OS-Acuity supports reversed optotype for rooms with mirrors.
 
 ### Understanding sizing
 The most complicated part of this project is displaying and resizing optotype accurately. The ViewSonic is a professional grade display, making it a perfect candidate for this task.
