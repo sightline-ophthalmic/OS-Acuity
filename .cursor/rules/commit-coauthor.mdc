@@ -2,8 +2,11 @@
 description: Commit authorship for James's GitHub graph
 alwaysApply: true
 ---
-Every commit you make in this repo must end its message with a blank line followed by this trailer:
+You are the author of commits you make in this repo. Do not put a real name or a real email address on the author, committer, or co-author.
+
+End every commit message with a blank line followed by this trailer:
 
 Co-authored-by: JW <gtwy@users.noreply.github.com>
 
 Never rewrite or amend existing history to add it.
+New repos get this file before the first commit.
