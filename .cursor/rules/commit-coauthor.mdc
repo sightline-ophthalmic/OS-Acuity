@@ -1,0 +1,9 @@
+---
+description: Commit authorship for James's GitHub graph
+alwaysApply: true
+---
+Every commit you make in this repo must end its message with a blank line followed by this trailer:
+
+Co-authored-by: JW <gtwy@users.noreply.github.com>
+
+Never rewrite or amend existing history to add it.
