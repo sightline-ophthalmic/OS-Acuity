@@ -45,7 +45,7 @@ body {
    position: absolute;
    bottom: 15%;
    left: 25%;
-   height: 350px;
+   height: 400px;
    width: 475px;
    align-items: center;
    justify-content: center;
@@ -111,6 +111,11 @@ body {
    font-family: 'Optician Sans';
    font-size: 30px;
    z-index: -1;
+}
+
+.tumble {
+   display: inline-block;
+   transform-origin: center center;
 }
 
 .mirror {

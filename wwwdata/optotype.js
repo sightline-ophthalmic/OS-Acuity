@@ -11,6 +11,7 @@ var optoSize = 8.7500;     // Height of 20/20 font in mm at 20 feet. Calculation
 var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
 var losDft = 20.0;         // Line-of-sight in whole feet.
 var losDin = 0.0;          // Line-of-sight inches that extend beyond last whole foot.
+var tumblingE = false;     // Session only. Never read from or written to a cookie.
 
 
 // Functions to simplify cookies. (Source: https://www.quirksmode.org/js/cookies.html)
@@ -182,6 +183,36 @@ function optoType() {
    return optoString;
 }
 
+// Tumbling E: same count as the letter chart, random direction instead of a letter.
+// Directions may repeat. A line of five has only four directions.
+function tumblingLine() {
+   'use strict';
+
+   var resizeObj = optoRatios.find(o => o.index == optoIndex);
+   var dirs = [0, 90, 180, 270];
+   var html = '';
+
+   for (var i = 0; i < resizeObj.letters; i++) {
+      var deg = dirs[Math.floor(Math.random() * dirs.length)];
+      if (i > 0) {
+         html += ' ';
+      }
+      html += '<span class="tumble" style="transform:rotate(' + deg + 'deg)">E</span>';
+   }
+
+   return html;
+}
+
+function showLine() {
+   'use strict';
+
+   if (tumblingE) {
+      $('#displayType').html(tumblingLine());
+   } else {
+      $('#displayType').text(optoType());
+   }
+}
+
 // Toggles a notice that the window is not in full screen mode
 function f11Toggle() {
    'use strict';
@@ -205,7 +236,7 @@ function changeSize(newIndex) {
       let resizeObj = optoRatios.find(o => o.index == newIndex);
       $('#displayType').css('font-size', (((optoSize * resizeObj.ratio) / pxSize) * 2 * (losD / 20)));
       $('#acuitySize').text(resizeObj.display);
-      $('#displayType').text(optoType());
+      showLine();
    }
 }
 
@@ -220,7 +251,7 @@ $(function () {
 
    // Set initial text and size
    changeSize(optoIndex);
-   $('#displayType').text(optoType());
+   showLine();
 
    // Mirror text
    if (optoMirror == true) {
@@ -241,7 +272,18 @@ $(function () {
       // Key press: ← or → (left or right)
       // Randomizes optotype.
       if (e.keyCode == 37 || e.keyCode == 39) {
-         $('#displayType').text(optoType());
+         showLine();
+      }
+
+      // Key press: E
+      // Session-only switch between the letter chart and tumbling E.
+      // Ignored while the menu is open or a settings field is focused.
+      if (e.keyCode == 69 && qMenu == false) {
+         var tag = e.target && e.target.tagName;
+         if (tag != 'INPUT' && tag != 'TEXTAREA') {
+            tumblingE = !tumblingE;
+            showLine();
+         }
       }
 
       // Key press: ↑ (up)
