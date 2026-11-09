@@ -190,16 +190,17 @@ function tumblingLine() {
 
    var resizeObj = optoRatios.find(o => o.index == optoIndex);
    var dirs = [0, 90, 180, 270];
-   var html = '';
+   var html = '<span class="eline">';
 
    for (var i = 0; i < resizeObj.letters; i++) {
       var deg = dirs[Math.floor(Math.random() * dirs.length)];
       if (i > 0) {
          html += ' ';
       }
-      html += '<span class="tumble" style="transform:rotate(' + deg + 'deg)">E</span>';
+      html += '<span class="espin" style="transform:rotate(' + deg + 'deg)">E</span>';
    }
 
+   html += '</span>';
    return html;
 }
 

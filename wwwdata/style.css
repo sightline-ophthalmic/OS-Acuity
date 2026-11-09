@@ -113,8 +113,19 @@ body {
    z-index: -1;
 }
 
-.tumble {
+/* #displayType is flex, which would drop the spaces between separate
+   letters. One inline-block keeps the font's own E advance and space,
+   so the gaps match the letter chart and grow with font-size. */
+.eline {
    display: inline-block;
+   white-space: nowrap;
+   line-height: normal;
+}
+
+.espin {
+   display: inline-block;
+   line-height: 1;
+   vertical-align: baseline;
    transform-origin: center center;
 }
 
