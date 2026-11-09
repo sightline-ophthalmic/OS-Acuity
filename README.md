@@ -17,21 +17,20 @@ This update also includes a small update from earlier this year - fixing repeati
 ## Installation and Usage
 Put the contents of wwwdata into the root directory, subfolder, or subdomain of your website. It is recommended that you clone this repo and then symlink the folder to streamline future updates.
 
+### Usage
+Press ↑ or ↓ (up or down) to increase or decrease the size of the optotype. Press ← or → (left or right) to randomize the line. The new line is never the same as the one already on screen.
+
+Press E to switch to the tumbling E chart. Every mark is the letter E, turned up, down, left, or right. Press E again to return to the letter chart. That choice lasts until the page is reloaded. It is not saved with the other settings.
+
+![Letters change size and line, then the chart switches to tumbling E.](docs/usage-demo.gif)
+<sub>Demonstration only. Not to scale.</sub>
+
 ### Configuration
 Press Q to open the configuration menu. Your settings are saved as a cookie.
 
 Enter only whole numbers for feet (e.g. 5, 10, 20) and decimal numbers for inches (e.g. 1.0625, 2, 3.5.) Please do not enter fractions (e.g. 3/4".)
 
 ![Configuration menu](docs/configuration-menu.png)
-
-### Usage
-Press ↑ or ↓ (up or down) to increase or decrease the size of the optotype. Press ← or → (left or right) to randomize the line. The new line is never the same as the one already on screen.
-
-Press E to switch to the tumbling E chart. Every mark is the letter E, turned up, down, left, or right. Press E again to return to the letter chart. That choice lasts until the page is reloaded. It is not saved with the other settings.
-
-Demonstration only. Not to scale.
-
-![Letters change size and line, then the chart switches to tumbling E.](docs/usage-demo.gif)
 
 ## Suggested Hardware
 The display below has been verified for accuracy. As for the other parts, nearly any option will do; suggestions below are just for your convenience.

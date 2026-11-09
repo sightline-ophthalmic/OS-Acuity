@@ -184,9 +184,9 @@ function optoType() {
    return optoString;
 }
 
-// Tumbling E directions. No direction beside itself, and no pair of
-// directions used twice in the line. 3,2,1,4,2 is allowed. 1,1,2,4,3
-// and 1,2,1,2,4 are not.
+// Tumbling E directions are 0, 90, 180, and 270. No direction beside
+// itself, and no ordered pair used twice in the line. Numbered 1
+// through 4, 3 2 1 4 2 is allowed. 1 1 2 4 3 and 1 2 1 2 4 are not.
 function tumblingDirs() {
    'use strict';
 
@@ -243,6 +243,7 @@ function tumblingDirs() {
    return fallback;
 }
 
+// One line of E marks. Spaces stay in the text so the gaps match the letter chart.
 function tumblingHtml(dirs) {
    'use strict';
 
