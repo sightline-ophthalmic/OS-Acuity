@@ -12,6 +12,7 @@ var pxSize = 0.2740;       // Dimensions of a single pixel on the screen in mm
 var losDft = 20.0;         // Line-of-sight in whole feet.
 var losDin = 0.0;          // Line-of-sight inches that extend beyond last whole foot.
 var tumblingE = false;     // Session only. Never read from or written to a cookie.
+var currentLineKey = '';   // What is on screen now, so left/right never redraws the same line.
 
 
 // Functions to simplify cookies. (Source: https://www.quirksmode.org/js/cookies.html)
@@ -183,34 +184,103 @@ function optoType() {
    return optoString;
 }
 
-// Tumbling E: same count as the letter chart, random direction instead of a letter.
-// Directions may repeat. A line of five has only four directions.
-function tumblingLine() {
+// Tumbling E directions. No direction beside itself, and no pair of
+// directions used twice in the line. 3,2,1,4,2 is allowed. 1,1,2,4,3
+// and 1,2,1,2,4 are not.
+function tumblingDirs() {
    'use strict';
 
    var resizeObj = optoRatios.find(o => o.index == optoIndex);
-   var dirs = [0, 90, 180, 270];
-   var html = '<span class="eline">';
+   var n = resizeObj.letters;
+   var all = [0, 90, 180, 270];
+   var guard = 0;
 
-   for (var i = 0; i < resizeObj.letters; i++) {
-      var deg = dirs[Math.floor(Math.random() * dirs.length)];
+   while (guard < 200) {
+      guard++;
+      var seq = [];
+      var usedPairs = {};
+      var ok = true;
+
+      for (var i = 0; i < n; i++) {
+         var choices = [];
+         for (var d = 0; d < all.length; d++) {
+            var dir = all[d];
+            if (i > 0 && dir === seq[i - 1]) {
+               continue;
+            }
+            if (i > 0 && usedPairs[seq[i - 1] + ',' + dir]) {
+               continue;
+            }
+            choices.push(dir);
+         }
+         if (choices.length === 0) {
+            ok = false;
+            break;
+         }
+         var pick = choices[Math.floor(Math.random() * choices.length)];
+         if (i > 0) {
+            usedPairs[seq[i - 1] + ',' + pick] = true;
+         }
+         seq.push(pick);
+      }
+
+      if (ok && seq.length === n) {
+         return seq;
+      }
+   }
+
+   // Last resort: still never repeat a direction beside itself.
+   var fallback = [];
+   var prev = -1;
+   for (var j = 0; j < n; j++) {
+      var pick2 = all[Math.floor(Math.random() * all.length)];
+      if (pick2 === prev) {
+         pick2 = all[(all.indexOf(pick2) + 1) % all.length];
+      }
+      fallback.push(pick2);
+      prev = pick2;
+   }
+   return fallback;
+}
+
+function tumblingHtml(dirs) {
+   'use strict';
+
+   var html = '<span class="eline">';
+   for (var i = 0; i < dirs.length; i++) {
       if (i > 0) {
          html += ' ';
       }
-      html += '<span class="espin" style="transform:rotate(' + deg + 'deg)">E</span>';
+      html += '<span class="espin" style="transform:rotate(' + dirs[i] + 'deg)">E</span>';
    }
-
    html += '</span>';
    return html;
 }
 
-function showLine() {
+// forceNew: left/right must not put the same characters back on screen.
+function showLine(forceNew) {
    'use strict';
 
+   var tries = 0;
+
    if (tumblingE) {
-      $('#displayType').html(tumblingLine());
+      var dirs, key;
+      do {
+         dirs = tumblingDirs();
+         key = 'E:' + dirs.join(',');
+         tries++;
+      } while (forceNew && key === currentLineKey && tries < 40);
+      currentLineKey = key;
+      $('#displayType').html(tumblingHtml(dirs));
    } else {
-      $('#displayType').text(optoType());
+      var text, lkey;
+      do {
+         text = optoType();
+         lkey = 'L:' + text;
+         tries++;
+      } while (forceNew && lkey === currentLineKey && tries < 40);
+      currentLineKey = lkey;
+      $('#displayType').text(text);
    }
 }
 
@@ -273,7 +343,7 @@ $(function () {
       // Key press: ← or → (left or right)
       // Randomizes optotype.
       if (e.keyCode == 37 || e.keyCode == 39) {
-         showLine();
+         showLine(true);
       }
 
       // Key press: E
