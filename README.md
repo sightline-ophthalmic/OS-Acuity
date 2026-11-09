@@ -6,7 +6,7 @@ A live version of this site is available for demonstration purposes at [acuity.s
 ### Formulas and Calculations
 Optotype calculations provided by Dr. Christopher Carver, O.D.
 
-### Update (2026-11-09)
+## Update (2026-11-09)
 
 This is still an actively maintained project. After OS-Acuity was built in 2019, it has worked without the need for any big changes or rewrites. Today, we've added the biggest change since we first went live: a tumbling E chart.
 
@@ -22,10 +22,16 @@ Press Q to open the configuration menu. Your settings are saved as a cookie.
 
 Enter only whole numbers for feet (e.g. 5, 10, 20) and decimal numbers for inches (e.g. 1.0625, 2, 3.5.) Please do not enter fractions (e.g. 3/4".)
 
+![Configuration menu](docs/configuration-menu.png)
+
 ### Usage
 Press ↑ or ↓ (up or down) to increase or decrease the size of the optotype. Press ← or → (left or right) to randomize the line. The new line is never the same as the one already on screen.
 
 Press E to switch to the tumbling E chart. Every mark is the letter E, turned up, down, left, or right. Press E again to return to the letter chart. That choice lasts until the page is reloaded. It is not saved with the other settings.
+
+Demonstration only. Not to scale.
+
+![Letters change size and line, then the chart switches to tumbling E.](docs/usage-demo.gif)
 
 ## Suggested Hardware
 The display below has been verified for accuracy. As for the other parts, nearly any option will do; suggestions below are just for your convenience.
