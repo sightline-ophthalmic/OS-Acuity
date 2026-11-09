@@ -3,6 +3,14 @@ Open Source Visual Acuity Testing for Optometrists. This open source project (an
 
 A live version of this site is available for use at [acuity.sightlinelaser.com](https://acuity.sightlinelaser.com).
 
+## Update (2026-11-09)
+
+OS-Acuity is still functional and still maintained.
+
+Press E to switch to a tumbling E chart. Every mark is the letter E, turned up, down, left, or right. The line has the same number of marks as the letter chart at that size. A direction does not sit next to the same direction, and a pair of directions is not used twice on the same line. Press E again to return to the letter chart. That choice lasts until the page is reloaded. It is not saved with the other settings.
+
+On 17 August 2026 the letter chart was fixed so the same letter does not appear more than once on a line. That fix was not written up here at the time.
+
 ## Update (2025-10-22)
 * ViewSonic VP2456 has been replaced with the VP2456A.
 * The old Bluetooth remote and USB charger were no longer available for purchase.
@@ -51,7 +59,7 @@ Press Q to open the configuration menu. Your settings are saved as a cookie.
 Enter only whole numbers for feet (e.g. 5, 10, 20) and decimal numbers for inches (e.g. 1.0625, 2, 3.5.) Please do not enter fractions (e.g. 3/4".)
 
 ### Usage
-Press ↑ or ↓ (up or down) to increase or decrease the size of the optotype. Press ← or → (left or right) to randomize the letters.
+Press ↑ or ↓ (up or down) to increase or decrease the size of the optotype. Press ← or → (left or right) to randomize the line. The new line is never the same as the one already on screen. Press E to switch between the letter chart and the tumbling E chart.
 
 ## Formulas & Calculations
 Optotype calculations provided by Dr. Christopher Carver, O.D.
