@@ -3,10 +3,10 @@ Open Source Visual Acuity Testing for Optometrists. This open source project (an
 
 A live version of this site is available for demonstration purposes at [acuity.sightlinelaser.com](https://acuity.sightlinelaser.com).
 
-## Formulas and Calculations
+### Formulas and Calculations
 Optotype calculations provided by Dr. Christopher Carver, O.D.
 
-## Update (2026-11-09)
+### Update (2026-11-09)
 
 This is still an actively maintained project. After OS-Acuity was built in 2019, it has worked without the need for any big changes or rewrites. Today, we've added the biggest change since we first went live: a tumbling E chart.
 
